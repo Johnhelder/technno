@@ -12,7 +12,12 @@
 
 <body>
   <div id="app">
-        
+    <section class="produtos">
+      <div v-for="produto in produtos" class="produto">
+        <img :src="produto.img" :alt="produto.nome" class="produto_img" />
+     {{produto}}
+      </div>
+    </section>
   </div>
 
   <script src="./app.js"></script>
