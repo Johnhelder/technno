@@ -15,7 +15,10 @@
     <section class="produtos">
       <div v-for="produto in produtos" class="produto">
         <img :src="produto.img" :alt="produto.nome" class="produto_img" />
-     {{produto}}
+        <div class="produto_info">
+          <span class="produto_preco">{{produto.preco}}</span>
+          <span class="produto_titulo">{{produto.nome}}</span>
+        </div>
       </div>
     </section>
   </div>
