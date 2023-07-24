@@ -14,8 +14,12 @@
 <body>
   <div id="app">
 
-    <section class="modal">
-      {{produto}}
+    <section class="modal" v-if="produto">
+      <div class="modal_container">
+        <div class="modal_img">
+          <img :src="produto.img" :alt="produto.nome">
+        </div>
+      </div> 
     </section>
 
     <section class="produtos">
