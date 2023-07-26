@@ -33,6 +33,7 @@ body{
   margin-bottom: 40px;
   background: #fff;
   box-shadow: 0 0 2rem rgba(0, 0, 0, .1);
+  cursor: pointer;
 }
 
 .produto_img{
@@ -47,4 +48,27 @@ body{
 
 .produto_preco{
   color: rgba(0, 0, 0, .5);
+}
+
+/*Modal*/
+
+.modal::before{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+}
+
+.modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 80px;
 }
