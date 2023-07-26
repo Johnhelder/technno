@@ -1,4 +1,4 @@
-body, h1, h2, ul, li{
+body, h1, h2, ul, li, p{
   padding: 0px;
   margin: 0px;
 }
@@ -75,9 +75,10 @@ body{
 
 .modal_container{
   position: relative;
-  background: #fff;
+  background: linear-gradient(to right, transparent 250px, white 250px);
   z-index: 1;
   display: grid;
+  align-items: end;
   grid-gap: 50px;
   padding: 0px 50px 50px 0px;
 }
@@ -85,6 +86,7 @@ body{
 .modal_img{
   grid-column: 1;
   margin-top: 50px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, .1), 0px 4px 10px rgb(0, 0,0,.2);
 }
 
 .modal_img img{
@@ -97,6 +99,47 @@ body{
   max-width: 600px;
 }
 
+.modal_titulo{
+  font-size: 3rem;
+}
+
+.modal_btn{
+  margin-top: 80px;
+  background-color: #000;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 25px;
+  font-family: "Noto Serif";
+}
+
+.modal_btn:hover{
+  background: rgb(179, 52, 52);
+  color: rgb(9, 247, 235);
+  text-transform: uppercase;
+}
+
+
+/**/
 .avaliacoes{
   grid-column: 2;
+}
+
+.avaliacao{
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(0, 0,0,.1);
+}
+
+.avaliacoes_subtitulo{
+  font-size: 1.75rem;
+}
+
+.avaliacao_descricao{
+  color: rgb(0, 0,0,.7);
+  margin: 20px 0 5px 0;
+}
+
+.avaliacao_usuario{
+  font-weight: bold;
 }
