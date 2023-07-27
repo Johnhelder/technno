@@ -83,6 +83,19 @@ body{
   padding: 0px 50px 50px 0px;
 }
 
+.modal_fechar{
+  border-radius: 50%;
+  border: 3px solid #000; 
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1rem;
+  box-shadow: 0px 3px 4px rgb(0, 0,0,.1), 0px 4px 10px rgb(0, 0,0,.2);
+  cursor: pointer;
+}
+
 .modal_img{
   grid-column: 1;
   margin-top: 50px;
@@ -121,7 +134,7 @@ body{
 }
 
 
-/**/
+/*avalições*/
 .avaliacoes{
   grid-column: 2;
 }
