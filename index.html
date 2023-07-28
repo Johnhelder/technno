@@ -14,12 +14,28 @@
 <body>
   <div id="app">
 
-    <section class="modal" v-if="produto">
+    <header class="header">
+      <img class="logo" src="./assets/techno.svg" alt="Technno">
+      <div class="carrinho_menu">{{carrinhoTotal}} | </div>
+    </header>
+
+    <section class="produtos">
+      <div v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id" class="produto">
+        <img :src="item.img" :alt="item.nome" class="produto_img" />
+        <div class="produto_info">
+          <span class="produto_preco">{{item.preco | numeroPreco}}</span>
+          <span class="produto_titulo">{{item.nome}}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal" v-if="produto" @click="fecharModal">
       <div class="modal_container">
         <div class="modal_img">
           <img :src="produto.img" :alt="produto.nome">
         </div>
         <div class="modal_dados">
+          <button @click="produto = false" class="modal_fechar">X</button>
           <span class="modal_preco">{{produto.preco}}</span>
           <h2 class="modal_titulo">{{produto.nome}}</h2>
           <p>{{produto.descricao}}</p>
@@ -30,22 +46,13 @@
           <ul>
             <li v-for="avaliacao in produto.avaliacoes" class="avaliacao">
               <p class="avaliacao_descricao">{{avaliacao.descricao}}</p>
-              <p>{{avaliacao.nome}} | {{avaliacao.estrelas}} estrelas</p>
+              <p class="avaliacao_usuario">{{avaliacao.nome}} | {{avaliacao.estrelas}} estrelas</p>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="produtos">
-      <div v-for="item in produtos" @click="fetchProduto(item.id)" :key="item.id" class="produto">
-        <img :src="item.img" :alt="item.nome" class="produto_img" />
-        <div class="produto_info">
-          <span class="produto_preco">{{item.preco | numeroPreco}}</span>
-          <span class="produto_titulo">{{item.nome}}</span>
-        </div>
-      </div>
-    </section>
   </div>
 
   <script src="./app.js"></script>
