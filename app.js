@@ -3,6 +3,8 @@ const vm = new Vue({
   data: {
      produtos: [],
      produto: false,
+     carrinho: [],
+     carrinhoTotal: 0,
   },
   
   filters:{
@@ -28,6 +30,14 @@ const vm = new Vue({
 
   fecharModal({target, currentTarget}){
     if(target === currentTarget) this.produto = false;
+  },
+  adicionarItem(event){
+    this.produto.estoque--;
+    const {id, nome, preco} = this.produto;
+    this.carrinho.push({id, nome, preco});
+  },
+  removerItem(){
+    this.carrinho.splace(0,1);
   },
   fetchProduto(id){
 fetch(`./api/produtos/${id}/dados.json`)
