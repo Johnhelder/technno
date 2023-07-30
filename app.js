@@ -36,8 +36,8 @@ const vm = new Vue({
     const {id, nome, preco} = this.produto;
     this.carrinho.push({id, nome, preco});
   },
-  removerItem(){
-    this.carrinho.splace(0,1);
+  removerItem(index){
+    this.carrinho.splace(index,1);
   },
   fetchProduto(id){
 fetch(`./api/produtos/${id}/dados.json`)
