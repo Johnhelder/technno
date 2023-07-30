@@ -13,10 +13,16 @@
 
 <body>
   <div id="app">
-
+    <button @click="removerItem">remover</button>
     <header class="header">
       <img class="logo" src="./assets/techno.svg" alt="Technno">
       <div class="carrinho_menu">{{carrinhoTotal}} | </div>
+      <ul>
+        <li v-for="(item, index) in carrinho">
+        <p>{{item.nome}}</p>
+        <button @click="removerItem(index)">X</button>
+        </li>
+      </ul>
     </header>
 
     <section class="produtos">
