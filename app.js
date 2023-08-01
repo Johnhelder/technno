@@ -61,5 +61,11 @@ fetch(`./api/produtos/${id}/dados.json`)
   },
   created(){
     this.fetchProdutos();
+  },
+
+  watch:{
+    carrinho(){
+      window.localStorage.carrinho = JSON.stringify(this.carrinho);
+    }
   }
 })
