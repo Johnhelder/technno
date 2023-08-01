@@ -51,21 +51,29 @@ const vm = new Vue({
   removerItem(index){
     this.carrinho.splice(index,1);
   },
+
+  checarLocalStorage(){
+    if(window.localStorage.carrinho)
+    this.carrinho = JSON.parse(window.localStorage.carrinho);
+  },
+
   fetchProduto(id){
 fetch(`./api/produtos/${id}/dados.json`)
 .then(r => r.json())
 .then(r =>{
   this.produto = r;
 })
-  }
   },
-  created(){
-    this.fetchProdutos();
-  },
-
   watch:{
     carrinho(){
       window.localStorage.carrinho = JSON.stringify(this.carrinho);
     }
   }
+  },
+  created(){
+    this.fetchProdutos();
+    this.checarLocalStorage();
+  }
+
+ 
 })
