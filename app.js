@@ -6,6 +6,7 @@ const vm = new Vue({
      carrinho: [],
      mensagemAlerta: "Item adicionado",
      alertaAtivo: false,
+     carrinhoAtivo: true,
   },
   
   filters:{
@@ -44,6 +45,8 @@ const vm = new Vue({
   fecharModal({target, currentTarget}){
     if(target === currentTarget) this.produto = false;
   },
+/*Methodo clickForaCarrinho aqui a baixo*/ 
+  
   adicionarItem(){
     this.produto.estoque--;
     const {id, nome, preco} = this.produto;
@@ -67,6 +70,13 @@ const vm = new Vue({
     }, 1500);
   },
 
+  router(){
+    const hash = document.location.hash;
+    if(hash){
+    this.fetchProduto(hash.replace("#", ""));
+  }
+  },
+
   fetchProduto(id){
 fetch(`./api/produtos/${id}/dados.json`)
 .then(r => r.json())
@@ -75,12 +85,16 @@ fetch(`./api/produtos/${id}/dados.json`)
 })
   },
   watch:{
+    /*vou precisar assistir a aula robre router*/
+    /*method produto aqui a baixo*/
+   
     carrinho(){
       window.localStorage.carrinho = JSON.stringify(this.carrinho);
     }
   }
   },
   created(){
+    this.router();
     this.fetchProdutos();
     this.checarLocalStorage();
   }
