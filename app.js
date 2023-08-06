@@ -87,6 +87,11 @@ fetch(`./api/produtos/${id}/dados.json`)
   watch:{
     /*vou precisar assistir a aula robre router*/
     /*method produto aqui a baixo*/
+    produto(){
+      document.title = this.produto.nome || "Technno";
+      const hash = this.produto.id || "";
+      history.pushState(null, null, `#${hash}`);
+    },
    
     carrinho(){
       window.localStorage.carrinho = JSON.stringify(this.carrinho);
