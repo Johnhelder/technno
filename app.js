@@ -46,12 +46,17 @@ const vm = new Vue({
     if(target === currentTarget) this.produto = false;
   },
 /*Methodo clickForaCarrinho aqui a baixo*/ 
+
+
+clickForaCarrinho({target, currentTarget}){
+  if(target === currentTarget) this.carrinhoAtivo = false;
+},
   
   adicionarItem(){
     this.produto.estoque--;
     const {id, nome, preco} = this.produto;
     this.carrinho.push({id, nome, preco});
-    this.alerta(`${nome} adicionado ao carrinho.`)
+    this.alerta(`${nome} adicionado ao carrinho.`);
   },
   removerItem(index){
     this.carrinho.splice(index,1);
