@@ -16,7 +16,7 @@
 
     <header class="header">
       <img class="logo" src="./assets/techno.svg" alt="Technno">
-      <div class="carrinho_menu">{{carrinhoTotal | numeroPreco}} | {{carrinho.length}}</div>
+      <div class="carrinho_menu" @click="carrinhoAtivo = true">{{carrinhoTotal | numeroPreco}} | {{carrinho.length}}</div>
 
     </header>
 
@@ -64,16 +64,14 @@
           <ul class="carrinho_lista">
             <li v-for="(item, index) in carrinho" class="carrinho_item">
               <p>{{item.nome}}</p>
-              <p class="carrinho_preco">{{item.preco | numberToPrice}}</p>
-              <button class="carrinho_remover" @click="removerItem(index)">X</button>
+              <p class="carrinho_preco">{{item.preco | numeroPreco}}</p>
+              <button class="carrinho_remover" @click="removerItem(item)">X</button>
             </li>
           </ul>
-          <p class="carrinho_total">
-            {{carrinhoTotal | numberToPrice}}
-          </p>
-          <button class="carrinho_finalizar">Finalizar Comprar</button>
+          <p class="carrinho_total">{{carrinhoTotal | numeroPreco}}</p>
+          <button class="carrinho_finalizar">Finalizar Compra</button>
         </div>
-        <p v-else>O carrinho está vazio</p>
+        <p v-else>O carrinho está vazio.</p>
       </div>
     </section>
     <div class="alerta" :class="{ativo: alertaAtivo}">
