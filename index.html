@@ -39,8 +39,7 @@
           <button @click="produto = false" class="modal_fechar">X</button>
           <span class="modal_preco">{{produto.preco}}</span>
           <h2 class="modal_titulo">{{produto.nome}}</h2>
-          <p>{{produto.descricao}}</p>
-          <!-- <p>{{produto.estoque}}</p> -->
+          <p>{{produto.descricao}}</p> 
           <button v-if="produto.estoque > 0" class="modal_btn" @click="adicionarItem">Adicionar item</button>
           <button v-else class="modal_btn esgotado" @click="adicionarItem" disabled>Produto esgotado</button>
         </div>
@@ -54,8 +53,7 @@
           </ul>
         </div>
       </div>
-    </section>
-    <!--Section removida aqui a baixo-->
+    </section> 
     <section class="carrinho_modal" :class="{ativo: carrinhoAtivo}" @click="clickForaCarrinho">
       <div class="carrinho_container">
         <button class="carrinho_fechar" @click="carrinhoAtivo = false">X</button>
